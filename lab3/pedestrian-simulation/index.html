@@ -1,0 +1,145 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedestrian Movement Modeling Simulation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            padding: 20px;
+        }
+
+        #canvas {
+            border: 2px solid #4A90E2;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin: 0 auto;
+            background: white;
+        }
+
+        #stats {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            color: #333;
+        }
+
+        #controls {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #controls label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: #4A90E2;
+        }
+
+        #controls input[type="range"] {
+            width: 100%;
+            -webkit-appearance: none;
+            height: 5px;
+            border-radius: 5px;
+            background: #ddd;
+            outline: none;
+            margin-bottom: 5px;
+        }
+
+        #controls input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4A90E2;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        #controls input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4A90E2;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        #controls button {
+            background: linear-gradient(45deg, #4A90E2, #357ABD);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin: 20px auto 0;
+        }
+
+        #controls button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .value-span {
+            font-weight: 400;
+            color: #666;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <div id="stats"></div>
+    <div id="controls">
+        <label>Number of Agents: <span id="numAgentsValue" class="value-span">50</span></label>
+        <input type="range" id="numAgents" min="10" max="200" value="50"><br>
+
+        <label>Separation Weight: <span id="separationWeightValue" class="value-span">1.5</span></label>
+        <input type="range" id="separationWeight" min="0.5" max="2.0" step="0.1" value="1.5"><br>
+
+        <label>Alignment Weight: <span id="alignmentWeightValue" class="value-span">1.0</span></label>
+        <input type="range" id="alignmentWeight" min="0.5" max="2.0" step="0.1" value="1.0"><br>
+
+        <label>Cohesion Weight: <span id="cohesionWeightValue" class="value-span">1.0</span></label>
+        <input type="range" id="cohesionWeight" min="0.5" max="2.0" step="0.1" value="1.0"><br>
+
+        <label>Goal Weight: <span id="goalWeightValue" class="value-span">1.2</span></label>
+        <input type="range" id="goalWeight" min="0.5" max="2.0" step="0.1" value="1.2"><br>
+
+        <label>Perception Radius: <span id="perceptionRadiusValue" class="value-span">50</span></label>
+        <input type="range" id="perceptionRadius" min="20" max="100" value="50"><br>
+
+        <button id="resetButton">Reset Simulation</button>
+    </div>
+
+    <script src="js/Vector.js"></script>
+    <script src="js/Agent.js"></script>
+    <script src="js/Environment.js"></script>
+    <script src="js/Simulation.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
