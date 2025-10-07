@@ -1,0 +1,13 @@
+{
+  "name": "minimax-alphabeta-lab",
+  "version": "1.0.0",
+  "description": "Лабораторная работа по ИИ Мини-макс и Альфа-бета отсечение",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
